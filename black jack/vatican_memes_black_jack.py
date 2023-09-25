@@ -33,7 +33,7 @@ def get_total(your_cards):
         count += value[i[0]]
     return count
 
-def hit_or_stand(your_cards):
+def hit_or_stand(your_cards, dealers_card):
     h_or_s = input("Hit or stand? (h/s) ")
     if h_or_s == "h":
         individual_card = []
@@ -51,7 +51,7 @@ def hit_or_stand(your_cards):
         return your_cards, printable_cards, "stand"
     else:
         print("Pick enter a valid input.")
-        hit_or_stand(your_cards)
+        the_loop(your_cards, dealers_card)
 
 def play_or_nay():
     pl_or_na = input("Would you like to play? (y/n) ")
@@ -106,7 +106,7 @@ def finale(your_cards, dealers_card):
           main()
 
 def the_loop(your_cards, dealers_card):
-    your_cards, printable_cards, h_s_output = hit_or_stand(your_cards)
+    your_cards, printable_cards, h_s_output = hit_or_stand(your_cards, dealers_card)
     printable_cards = ", ".join(printable_cards)
     print(f"Your cards are: {printable_cards}")
     print(f"Total: {get_total(your_cards)}")
