@@ -115,7 +115,6 @@ def the_loop(your_cards, dealers_card):
          print()
          main()
     if h_s_output == "stand":
-         pass
          finale(your_cards, dealers_card)
     the_loop(your_cards, dealers_card)
 
