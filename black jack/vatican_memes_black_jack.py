@@ -77,17 +77,20 @@ def beginnings():
     return your_cards, dealers_card
 
 def finale(your_cards, dealers_card):
-     dealers_individual_card = []
-     dealers_printable_card = []
-     dealers_individual_card.append(cards[1][random.randint(0, 11)])
-     dealers_individual_card.append(cards[0][random.randint(0, 3)])
-     dealers_card.append(dealers_individual_card)
-     for i in dealers_card:
-         dealers_printable_card.append(" of ".join(i))
-     dealers_printable_card = ", ".join(dealers_printable_card)
+     while get_total(dealers_card) < 18:
+        dealers_individual_card = []
+        dealers_printable_card = []
+        dealers_individual_card.append(cards[1][random.randint(0, 11)])
+        dealers_individual_card.append(cards[0][random.randint(0, 3)])
+        dealers_card.append(dealers_individual_card)
+        for i in dealers_card:
+            dealers_printable_card.append(" of ".join(i))
+        dealers_printable_card = ", ".join(dealers_printable_card)
      print(f"Dealers cards: {dealers_printable_card}")
      print(f"Dealers total: {get_total(dealers_card)}")
-     if get_total(your_cards) > get_total(dealers_card):
+     if get_total(dealers_card) > 21:
+          print("Dealer busts. You win!")
+     elif get_total(your_cards) > get_total(dealers_card):
           print("You win!")
           print()
           main()
@@ -106,7 +109,7 @@ def the_loop(your_cards, dealers_card):
     print(f"Your cards are: {printable_cards}")
     print(f"Total: {get_total(your_cards)}")
     if get_total(your_cards) > 21:
-         print("You lose.")
+         print("You bust. Dealer wins.")
          print()
          main()
     if h_s_output == "stand":
