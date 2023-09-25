@@ -90,6 +90,8 @@ def finale(your_cards, dealers_card):
      print(f"Dealers total: {get_total(dealers_card)}")
      if get_total(dealers_card) > 21:
           print("Dealer busts. You win!")
+          print()
+          main()
      elif get_total(your_cards) > get_total(dealers_card):
           print("You win!")
           print()
